@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  backend_ws:
+#    image: phpswoole/swoole
+    container_name: swoo
+    build:
+      dockerfile: Dockerfile
+      context: .
+#    stdin_open: true
+#    tty: true
+    volumes:
+    - ./:/app
+    ports:
+      - 9501:9501

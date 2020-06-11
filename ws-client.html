@@ -1,0 +1,19 @@
+<html>
+
+<body>
+
+</body>
+</html>
+
+<script>
+var ws = new WebSocket('ws://localhost:9501');
+
+ws.onopen = () => {
+    document.body.onmousemove = (e) => {
+        ws.send(JSON.stringify({x: e.clientX, y: e.clientY}));
+    };
+};
+
+ws.onmessage = function(evt) { console.log(evt.data); };
+
+</script>
